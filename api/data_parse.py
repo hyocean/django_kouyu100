@@ -100,8 +100,6 @@ def get_loads_ecsInfo():
                 'ecs_list': ecs_list,
             }
             slblist.append(objParse)
-            # if slbObj.pk == 10:
-            #     break
         except IndexError:
             pass
     return slblist

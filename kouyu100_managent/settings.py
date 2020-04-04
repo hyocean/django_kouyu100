@@ -96,6 +96,8 @@ CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1'
 )
 
+from aliyunsdkcore.client import AcsClient
+
 client = lambda: AcsClient(
     "xxx",
     "xxx",

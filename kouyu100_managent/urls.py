@@ -21,5 +21,4 @@ urlpatterns = [
     url('^api/', include('api.urls')),
     url('^user/', include('user.urls')),
     url(r'', TemplateView.as_view(template_name='index.html')),
-    #url(r'', include('web.urls')),
 ]

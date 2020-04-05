@@ -46,7 +46,7 @@ def hawkeye_update_status(data):
         for table in table_list:
             monitor_update = hawkeye(
                 "update {2} set status='{3}' where name='{0}' or innerIp='{1}';".format(name, inner, table, status))
-            if monitor_update.rowcount >= 1: ret_status = True
+            if monitor_update.rowcount >= 1:ret_status = True
 
     current_status = hawkeye_select_status(pk)
     ret = {'ecs': name, 'update_status': ret_status, 'status': current_status}

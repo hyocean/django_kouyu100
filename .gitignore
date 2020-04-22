@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.kouyu100_managent/settings.py
 # C extensions
 *.so
 
@@ -24,8 +25,6 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-
-
 MANIFEST
 
 # PyInstaller
@@ -136,4 +135,4 @@ dmypy.json
 .idea/vcs.xml
 message_db/migrations/0001_initial.py
 message_db/migrations/0002_auto_20200422_2135.py
-kouyu100_managent/settings.py
+.kouyu100_managent/settings.py

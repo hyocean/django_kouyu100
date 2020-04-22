@@ -27,6 +27,9 @@ def slb_update_db():
                 'ip': slb_ip,
                 'tag': slb_tag
             })
+
+    time_now = datetime.datetime.now().strftime("%Y-%m-%d")
+    models.MonitorSLB.objects.filter(update_time__lt=time_now).delete()
     return True
 
 
@@ -49,6 +52,9 @@ def ecs_update_db():
                 'inner_ip': inner_ip,
                 'pub_ip': pub_ip,
             })
+
+    time_now = datetime.datetime.now().strftime("%Y-%m-%d")
+    models.MonitorECS.objects.filter(update_time__lt=time_now).delete()
     return True
 
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from kouyu100_managent.settings import users
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.views import APIView
@@ -35,13 +36,6 @@ class UserInfo(APIView):
     def get(request, *args, **kwargs):
         dataObj = RestFulObject()
         ret = request.GET.get('token')
-        users = {
-            '0abe17837ede9c0b98166c5dcb0f1426024f85c9': {
-                "roles": ['root'],
-                "introduction": 'I am a super administrator',
-                "avatar": 'http://pic4.zhimg.com/50/v2-548c55b76dc4c76a8b382168505bceef_hd.jpg',
-                "name": 'root'
-            }}
         response = users.get(ret)
         dataObj.success(response)
         return Response(dataObj.ret())

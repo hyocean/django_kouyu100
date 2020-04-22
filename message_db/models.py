@@ -22,7 +22,7 @@ class MonitorECS(models.Model):
     ecs_id = models.CharField('实例ID', max_length=64, unique=True)
     inner_ip = models.CharField('内网IP', max_length=32, unique=True)
     pub_ip = models.CharField('外网IP', max_length=32, unique=True)
-    update_time = models.DateTimeField(auto_now=True)
+    update_time = models.DateField(auto_now=True)
 
     class Meta:
         verbose_name_plural = "机器实例表"
@@ -39,7 +39,7 @@ class MonitorSLB(models.Model):
     slb_id = models.CharField('负载均衡ID', max_length=64, unique=True)
     ip = models.CharField('Ip地址', max_length=32, unique=True)
     tag = models.CharField('Tag标签', max_length=32, null=True)
-    update_time = models.DateTimeField(auto_now=True)
+    update_time = models.DateField(auto_now=True)
 
     class Meta:
         verbose_name_plural = "负载均衡表"

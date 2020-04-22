@@ -103,7 +103,6 @@ client = lambda: AcsClient(
     "xxx",
     "xxx")
 
-
 ROOT_URLCONF = 'kouyu100_managent.urls'
 
 TEMPLATES = [
@@ -131,18 +130,18 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'python_mhy',
-        'HOST': 'xxx',
+        'HOST': '127.0.0.1',
         'PORT': 3306,
-        'USER': 'xxx',
-        'PASSWORD': 'xxx',
+        'USER': 'root',
+        'PASSWORD': '123456',
     },
     'hawkeye': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hawkeye',
-        'HOST': 'xxx',
+        'HOST': '127.0.0.1',
         'PORT': 3306,
-        'USER': 'xxx',
-        'PASSWORD': 'xxx',
+        'USER': 'root',
+        'PASSWORD': '123456',
     },
 }
 
@@ -185,7 +184,7 @@ TIME_FORMAT = 'H:i:s'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    #os.path.join(BASE_DIR, 'static')
+    # os.path.join(BASE_DIR, 'static')
     r'/opt/kouyu100_manager/vue_kouyu100/dist/static/'
 ]
 
@@ -252,5 +251,15 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': False,
         },
+    }
+}
+
+# adminUser
+users = {
+    '0abe17837ede9c0b98166c5dcb0f1426024f85c9': {
+        "roles": ['root'],
+        "introduction": 'I am a super administrator',
+        "avatar": 'http://pic4.zhimg.com/50/v2-548c55b76dc4c76a8b382168505bceef_hd.jpg',
+        "name": 'root'
     }
 }

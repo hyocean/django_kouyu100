@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-kouyu100_managent/settings.py
+.kouyu100_managent/settings.py
 # C extensions
 *.so
 

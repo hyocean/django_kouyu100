@@ -42,11 +42,18 @@ def ecs_update_db():
     for page in range(1, ecs_TotalCount):
         response = ECS().ecs_detail(page)['Instances']['Instance']
         for ecs_message in response:
-            ecs_name, ecs_id, inner_ip, pub_ip = ecs_message.get('InstanceName'), \
-                                                 ecs_message.get('InstanceId'), \
-                                                 ecs_message.get('InnerIpAddress').get('IpAddress')[0], \
-                                                 ecs_message.get('PublicIpAddress').get('IpAddress')[0]
+            NetWorkType = ecs_message.get('InstanceNetworkType')
+            print(NetWorkType)
+            if NetWorkType == 'vpc':
+                inner_ip = ecs_message.get('VpcAttributes').get('PrivateIpAddress').get('IpAddress')[0]
+            else:
+                inner_ip = ecs_message.get('InnerIpAddress').get('IpAddress')[0]
 
+            ecs_name, ecs_id, pub_ip = ecs_message.get('InstanceName'), \
+                                       ecs_message.get('InstanceId'), \
+                                       ecs_message.get('PublicIpAddress').get('IpAddress')[0]
+
+            print(ecs_name, ecs_id, inner_ip, pub_ip)
             models.MonitorECS.objects.update_or_create(ecs_id=ecs_id, defaults={
                 'name': ecs_name,
                 'inner_ip': inner_ip,
